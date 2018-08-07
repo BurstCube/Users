@@ -1,0 +1,17 @@
+Version 1
+Geometry /home/laura/Simulation/MEGAlib/geo/BurstCubeCylinder.geo.setup
+CheckForOverlaps 1000 0.01
+PhysicsListEM Livermore
+StoreCalibrate True
+StoreSimulationInfo True
+StoreOnlyEventsWithEnergyLoss True
+DiscretizeHits True
+
+Run FFPS
+FFPS.Filename /home/laura/Research/local_test/28_15_0/FIN_28.000keV_15.00ze_0.00az
+FFPS.NTriggers 1000
+FFPS.Source One
+One.ParticleType 1
+One.Beam FarfieldPointSource 15.0 0.0
+One.Spectrum Mono 28.0
+One.Flux 1000.0

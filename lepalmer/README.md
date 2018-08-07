@@ -2,7 +2,7 @@ This README document explains the outline of the larger documented README link f
 
 The larger documented README can be found at this link: [ReadMe--Localization Code Information] (https://docs.google.com/document/d/1T5XMweRIlZc7Jq1hoVJ0wxRzgstX14RMaHXqRU89LuA/edit?usp=sharing)
 
-The first section of the ReadMe--Localization Code Information, entitled Preliminary Process,
+The first section of the larger README, entitled Preliminary Process,
 contains information on the preliminary process of making the localization code--specifically, figuring out how to create simulation files as well as making plots to understand how the effective area of one BurstCube detector compares to either a certain energy, a certain azimuth, or a certain zenith.
 
 The second section, entitled Pre-Localization Codes, contains all of the preliminary codes created after determining how the effective area compared against the energy. The preliminary codes are placed in estimated order of completion.
@@ -14,7 +14,7 @@ The fourth section, entitled Final Process (localDetFinder in SmallSteps/finalTe
 Final Code Summary Cell-by-cell:
 The first portion of the code imports the sim files from the directory containing the configuration file, and the BurstCube module is used to extract elements from the files: energy, azimuth, and zenith. Astropy module is also imported to allow for creation of tables/updating tables.
 
-The second portion of the code contains the detector counting variables, which are initialized per each sim file. The lists hitsData is also initialized to store all data (either from one file to find the unknown location of a random burst or from multiple files to store simulated data in a table). Detector counts are found by extracting lines out of simulation files containing hit data (each hit should be located on the center of a detector because the source files set the DiscretizeHits variable to TRUE):each detector is located in each quadrant of the cartesian plane, the azimuth angle is measured counterclockwise from the x-axis, the absolute value of each center x-y pair is: (5.52500, 5.52500)
+The second portion of the code contains the detector counting variables, which are initialized per each sim file. The list hitsData is also initialized to store all data (either from one file to find the unknown location of a random burst or from multiple files to store simulated data in a table). Detector counts are found by extracting lines out of simulation files containing hit data (each hit should be located on the center of a detector because the source files set the DiscretizeHits variable to TRUE): each detector is located in each quadrant of the cartesian plane, the azimuth angle is measured counterclockwise from the x-axisand, the absolute value of each center x-y pair is: (5.52500, 5.52500)
 
 The third portion/cell helps to analyze the hitsData array for future use.
 

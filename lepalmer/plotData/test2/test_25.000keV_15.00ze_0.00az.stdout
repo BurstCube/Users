@@ -1,0 +1,2451 @@
+
+**************************************************************************
+*                                                                        *
+*                Cosima - the cosmic simulator of MEGAlib                *
+*                                                                        *
+*             This program is part of MEGAlib version 2.32.02            *
+*                (C) by Andreas Zoglauer and contributors                *
+*                                                                        *
+*                      Master reference for MEGAlib:                     *
+*            A. Zoglauer et al., NewAR 50 (7-8), 629-632, 2006           *
+*                                                                        *
+*            For more information about MEGAlib please visit:            *
+*                        http://megalibtoolkit.com                       *
+*                                                                        *
+**************************************************************************
+
+Using parameter file ./test_25.000keV_15.00ze_0.00az.source
+
+*************************************************************
+ Geant4 version Name: geant4-10-02-patch-03    (27-January-2017)
+                      Copyright : Geant4 Collaboration
+                      Reference : NIM A 506 (2003), 250-303
+                            WWW : http://cern.ch/geant4
+*************************************************************
+
+Chosen physics: 
+Particles  
+G4EmLivermorePhysics  
+G4RadioactiveDecay  
+
+One: average start area: 7853.98 cm2
+One: Final flux: 1000 ph/cm^2/sec
+Adding szintillator for DCalCSISD
+Visualization Manager instantiating with verbosity "warnings (3)"...
+Visualization Manager initialising...
+Registering graphics systems...
+
+You have successfully registered the following graphics systems.
+Current available graphics systems are:
+ASCIITree (ATree)
+DAWNFILE (DAWNFILE)
+G4HepRep (HepRepXML)
+G4HepRepFile (HepRepFile)
+RayTracer (RayTracer)
+VRML1FILE (VRML1FILE)
+VRML2FILE (VRML2FILE)
+gMocrenFile (gMocrenFile)
+OpenGLImmediateX (OGLIX, OGLI)
+OpenGLStoredX (OGLSX, OGL, OGLS)
+
+Registering model factories...
+
+You have successfully registered the following model factories.
+Registered model factories:
+  generic
+  drawByCharge
+  drawByParticleID
+  drawByOriginVolume
+  drawByAttribute
+
+Registered filter factories:
+  chargeFilter
+  particleFilter
+  originVolumeFilter
+  attributeFilter
+
+You have successfully registered the following user vis actions.
+Run Duration User Vis Actions: none
+End of Event User Vis Actions: none
+End of Run User Vis Actions: none
+
+Some /vis commands (optionally) take a string to specify colour.
+Available colours:
+  black, blue, brown, cyan, gray, green, grey, magenta, red, white, yellow
+
+
+Starting run "FFPS":
+
+
+### ===  Deexcitation model UAtomDeexcitation is activated for 1 region:
+          DefaultRegionForTheWorld
+
+### === G4UAtomicDeexcitation::InitialiseForNewRun()
+### ===  PIXE model for hadrons: Empirical
+### ===  PIXE model for e+-:     Livermore
+
+phot:   for  gamma    SubType= 12  BuildTable= 0
+      LambdaPrime table from 200 keV to 10 TeV in 154 bins 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+ LivermorePhElectric :  Emin=        0 eV    Emax=       10 TeV   AngularGenSauterGavrila  FluoActive
+
+compt:   for  gamma    SubType= 13  BuildTable= 1
+      Lambda table from 100 eV  to 1 MeV, 20 bins per decade, spline: 1
+      LambdaPrime table from 1 MeV to 10 TeV in 140 bins 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+    LivermoreCompton :  Emin=        0 eV    Emax=       10 TeV  FluoActive
+
+conv:   for  gamma    SubType= 14  BuildTable= 1
+      Lambda table from 1.022 MeV to 10 TeV, 20 bins per decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+ LivermoreConversion :  Emin=        0 eV    Emax=       80 GeV
+     BetheHeitlerLPM :  Emin=       80 GeV   Emax=       10 TeV
+
+Rayl:   for  gamma    SubType= 11  BuildTable= 1
+      Lambda table from 100 eV  to 100 keV, 20 bins per decade, spline: 0
+      LambdaPrime table from 100 keV to 10 TeV in 160 bins 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+   LivermoreRayleigh :  Emin=        0 eV    Emax=       10 TeV   CullenGenerator
+
+msc:   for e-    SubType= 10
+      RangeFactor= 0.02, stepLimitType: 3, latDisplacement: 1, skin= 1, geomFactor= 2.5
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc :  Emin=        0 eV    Emax=      100 MeV  Table with 120 bins Emin=    100 eV    Emax=    100 MeV
+        WentzelVIUni :  Emin=      100 MeV   Emax=       10 TeV  Table with 100 bins Emin=    100 MeV   Emax=     10 TeV
+
+eIoni:   for  e-    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      finalRange(mm)= 0.1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+       LowEnergyIoni :  Emin=        0 eV    Emax=      100 keV   deltaVI
+        MollerBhabha :  Emin=      100 keV   Emax=       10 TeV   deltaVI
+
+eBrem:   for  e-    SubType= 3
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      LPM flag: 1 for E > 1 GeV,  HighEnergyThreshold(GeV)= 10000
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           LowEnBrem :  Emin=        0 eV    Emax=        1 GeV   AngularGen2BS
+            eBremLPM :  Emin=        1 GeV   Emax=       10 TeV   DipBustGen
+
+CoulombScat:   for  e-, integral: 1     SubType= 1  BuildTable= 1
+      Lambda table from 100 MeV to 10 TeV, 20 bins per decade, spline: 1
+      180 < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering :  Emin=      100 MeV   Emax=       10 TeV
+
+msc:   for e+    SubType= 10
+      RangeFactor= 0.02, stepLimitType: 3, latDisplacement: 1, skin= 1, geomFactor= 2.5
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc :  Emin=        0 eV    Emax=      100 MeV  Table with 120 bins Emin=    100 eV    Emax=    100 MeV
+        WentzelVIUni :  Emin=      100 MeV   Emax=       10 TeV  Table with 100 bins Emin=    100 MeV   Emax=     10 TeV
+
+eIoni:   for  e+    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      finalRange(mm)= 0.1, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        MollerBhabha :  Emin=        0 eV    Emax=       10 TeV   deltaVI
+
+eBrem:   for  e+    SubType= 3
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      LPM flag: 1 for E > 1 GeV,  HighEnergyThreshold(GeV)= 10000
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+             eBremSB :  Emin=        0 eV    Emax=        1 GeV   DipBustGen
+            eBremLPM :  Emin=        1 GeV   Emax=       10 TeV   DipBustGen
+
+annihil:   for  e+, integral: 1     SubType= 5  BuildTable= 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            eplus2gg :  Emin=        0 eV    Emax=       10 TeV
+
+CoulombScat:   for  e+, integral: 1     SubType= 1  BuildTable= 1
+      Lambda table from 100 MeV to 10 TeV, 20 bins per decade, spline: 1
+      180 < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering :  Emin=      100 MeV   Emax=       10 TeV
+
+msc:   for proton    SubType= 10
+      RangeFactor= 0.2, stepLimitType: 0, latDisplacement: 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc :  Emin=        0 eV    Emax=       10 TeV  Table with 220 bins Emin=    100 eV    Emax=     10 TeV
+
+hIoni:   for  proton    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      finalRange(mm)= 0.05, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :  Emin=        0 eV    Emax=        2 MeV   deltaVI
+          BetheBloch :  Emin=        2 MeV   Emax=       10 TeV   deltaVI
+
+hBrems:   for  proton    SubType= 3
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem :  Emin=        0 eV    Emax=       10 TeV
+
+hPairProd:   for  proton    SubType= 4
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      Sampling table 13x1001; from 7.50618 GeV to 10 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd :  Emin=        0 eV    Emax=       10 TeV
+
+nuclearStopping:   for  proton    SubType= 8  BuildTable= 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+   ICRU49NucStopping :  Emin=        0 eV    Emax=        1 MeV
+
+msc:   for GenericIon    SubType= 10
+      RangeFactor= 0.2, stepLimitType: 0, latDisplacement: 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc :  Emin=        0 eV    Emax=       10 TeV
+
+ionIoni:   for  GenericIon    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      finalRange(mm)= 0.001, dRoverRange= 0.1, integral: 1, fluct: 1, linLossLimit= 0.02
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+         ParamICRU73 :  Emin=        0 eV    Emax=       10 TeV   deltaVI
+
+nuclearStopping:   for  GenericIon    SubType= 8  BuildTable= 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+   ICRU49NucStopping :  Emin=        0 eV    Emax=        1 MeV
+
+### ===  Deexcitation model UAtomDeexcitation is activated for 1 region:
+          DefaultRegionForTheWorld
+
+### === G4UAtomicDeexcitation::InitialiseForNewRun()
+### ===  PIXE model for hadrons: Empirical
+### ===  PIXE model for e+-:     Livermore
+
+msc:   for alpha    SubType= 10
+      RangeFactor= 0.2, stepLimitType: 0, latDisplacement: 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc :  Emin=        0 eV    Emax=       10 TeV  Table with 220 bins Emin=    100 eV    Emax=     10 TeV
+
+ionIoni:   for  alpha    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      finalRange(mm)= 0.01, dRoverRange= 0.1, integral: 1, fluct: 1, linLossLimit= 0.02
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            BraggIon :  Emin=        0 eV    Emax=   7.9452 MeV   deltaVI
+          BetheBloch :  Emin=   7.9452 MeV   Emax=       10 TeV   deltaVI
+
+nuclearStopping:   for  alpha    SubType= 8  BuildTable= 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+   ICRU49NucStopping :  Emin=        0 eV    Emax=        1 MeV
+
+msc:   for anti_proton    SubType= 10
+      RangeFactor= 0.2, stepLimitType: 0, latDisplacement: 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc :  Emin=        0 eV    Emax=       10 TeV  Table with 220 bins Emin=    100 eV    Emax=     10 TeV
+
+hIoni:   for  anti_proton    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      finalRange(mm)= 0.05, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO :  Emin=        0 eV    Emax=        2 MeV   deltaVI
+          BetheBloch :  Emin=        2 MeV   Emax=       10 TeV   deltaVI
+
+hBrems:   for  anti_proton    SubType= 3
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem :  Emin=        0 eV    Emax=       10 TeV
+
+hPairProd:   for  anti_proton    SubType= 4
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      Sampling table 13x1001; from 7.50618 GeV to 10 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd :  Emin=        0 eV    Emax=       10 TeV
+
+nuclearStopping:   for  anti_proton    SubType= 8  BuildTable= 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+   ICRU49NucStopping :  Emin=        0 eV    Emax=        1 MeV
+
+msc:   for kaon+    SubType= 10
+      RangeFactor= 0.2, stepLimitType: 0, latDisplacement: 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc :  Emin=        0 eV    Emax=       10 TeV  Table with 220 bins Emin=    100 eV    Emax=     10 TeV
+
+hIoni:   for  kaon+    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      finalRange(mm)= 0.05, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :  Emin=        0 eV    Emax=  1.05231 MeV   deltaVI
+          BetheBloch :  Emin=  1.05231 MeV   Emax=       10 TeV   deltaVI
+
+hBrems:   for  kaon+    SubType= 3
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem :  Emin=        0 eV    Emax=       10 TeV
+
+hPairProd:   for  kaon+    SubType= 4
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      Sampling table 14x1001; from 3.94942 GeV to 10 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd :  Emin=        0 eV    Emax=       10 TeV
+
+msc:   for kaon-    SubType= 10
+      RangeFactor= 0.2, stepLimitType: 0, latDisplacement: 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc :  Emin=        0 eV    Emax=       10 TeV  Table with 220 bins Emin=    100 eV    Emax=     10 TeV
+
+hIoni:   for  kaon-    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      finalRange(mm)= 0.05, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO :  Emin=        0 eV    Emax=  1.05231 MeV   deltaVI
+          BetheBloch :  Emin=  1.05231 MeV   Emax=       10 TeV   deltaVI
+
+hBrems:   for  kaon-    SubType= 3
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem :  Emin=        0 eV    Emax=       10 TeV
+
+hPairProd:   for  kaon-    SubType= 4
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      Sampling table 14x1001; from 3.94942 GeV to 10 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd :  Emin=        0 eV    Emax=       10 TeV
+
+msc:   for mu+    SubType= 10
+      RangeFactor= 0.2, step limit type: 0, lateralDisplacement: 0, polarAngleLimit(deg)= 180
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni :  Emin=        0 eV    Emax=       10 TeV  Table with 220 bins Emin=    100 eV    Emax=     10 TeV
+
+muIoni:   for  mu+    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      finalRange(mm)= 0.05, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :  Emin=        0 eV    Emax=      200 keV   deltaVI
+          BetheBloch :  Emin=      200 keV   Emax=        1 GeV   deltaVI
+        MuBetheBloch :  Emin=        1 GeV   Emax=       10 TeV
+
+muBrems:   for  mu+    SubType= 3
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+              MuBrem :  Emin=        0 eV    Emax=       10 TeV
+
+muPairProd:   for  mu+    SubType= 4
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      Sampling table 17x1001; from 1 GeV to 10 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd :  Emin=        0 eV    Emax=       10 TeV
+
+CoulombScat:   for  mu+, integral: 1     SubType= 1  BuildTable= 1
+      Lambda table from threshold  to 10 TeV, 20 bins per decade, spline: 1
+      180 < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering :  Emin=        0 eV    Emax=       10 TeV
+
+msc:   for mu-    SubType= 10
+      RangeFactor= 0.2, step limit type: 0, lateralDisplacement: 0, polarAngleLimit(deg)= 180
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni :  Emin=        0 eV    Emax=       10 TeV  Table with 220 bins Emin=    100 eV    Emax=     10 TeV
+
+muIoni:   for  mu-    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      finalRange(mm)= 0.05, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO :  Emin=        0 eV    Emax=      200 keV   deltaVI
+          BetheBloch :  Emin=      200 keV   Emax=        1 GeV   deltaVI
+        MuBetheBloch :  Emin=        1 GeV   Emax=       10 TeV
+
+muBrems:   for  mu-    SubType= 3
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+              MuBrem :  Emin=        0 eV    Emax=       10 TeV
+
+muPairProd:   for  mu-    SubType= 4
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      Sampling table 17x1001; from 1 GeV to 10 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd :  Emin=        0 eV    Emax=       10 TeV
+
+CoulombScat:   for  mu-, integral: 1     SubType= 1  BuildTable= 1
+      Lambda table from threshold  to 10 TeV, 20 bins per decade, spline: 1
+      180 < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering :  Emin=        0 eV    Emax=       10 TeV
+
+msc:   for pi+    SubType= 10
+      RangeFactor= 0.2, stepLimitType: 0, latDisplacement: 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc :  Emin=        0 eV    Emax=       10 TeV  Table with 220 bins Emin=    100 eV    Emax=     10 TeV
+
+hIoni:   for  pi+    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      finalRange(mm)= 0.05, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg :  Emin=        0 eV    Emax=  297.505 keV   deltaVI
+          BetheBloch :  Emin=  297.505 keV   Emax=       10 TeV   deltaVI
+
+hBrems:   for  pi+    SubType= 3
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem :  Emin=        0 eV    Emax=       10 TeV
+
+hPairProd:   for  pi+    SubType= 4
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      Sampling table 16x1001; from 1.11656 GeV to 10 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd :  Emin=        0 eV    Emax=       10 TeV
+
+msc:   for pi-    SubType= 10
+      RangeFactor= 0.2, stepLimitType: 0, latDisplacement: 0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc :  Emin=        0 eV    Emax=       10 TeV  Table with 220 bins Emin=    100 eV    Emax=     10 TeV
+
+hIoni:   for  pi-    SubType= 2
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      finalRange(mm)= 0.05, dRoverRange= 0.2, integral: 1, fluct: 1, linLossLimit= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO :  Emin=        0 eV    Emax=  297.505 keV   deltaVI
+          BetheBloch :  Emin=  297.505 keV   Emax=       10 TeV   deltaVI
+
+hBrems:   for  pi-    SubType= 3
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem :  Emin=        0 eV    Emax=       10 TeV
+
+hPairProd:   for  pi-    SubType= 4
+      dE/dx and range tables from 100 eV  to 10 TeV in 220 bins
+      Lambda tables from threshold to 10 TeV, 20 bins per decade, spline: 1
+      Sampling table 16x1001; from 1.11656 GeV to 10 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd :  Emin=        0 eV    Emax=       10 TeV
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 1 of 90 at t_obs=1.13324e-05s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 2 of 272 at t_obs=3.6789e-05s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 3 of 399 at t_obs=5.24822e-05s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 4 of 431 at t_obs=5.62447e-05s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 5 of 439 at t_obs=5.74423e-05s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 6 of 1019 at t_obs=0.00013128s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 7 of 1719 at t_obs=0.000218295s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 8 of 1948 at t_obs=0.000247429s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 9 of 2960 at t_obs=0.000374277s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 10 of 2969 at t_obs=0.000375635s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 11 of 3062 at t_obs=0.000386305s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 12 of 3172 at t_obs=0.000402838s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 13 of 3308 at t_obs=0.00041782s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 14 of 3437 at t_obs=0.000435407s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 15 of 4301 at t_obs=0.00053584s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 16 of 5198 at t_obs=0.000651413s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 17 of 5401 at t_obs=0.000678688s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 18 of 6280 at t_obs=0.000786049s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 19 of 6699 at t_obs=0.000836179s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 20 of 6965 at t_obs=0.00087032s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 21 of 7271 at t_obs=0.000911213s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 22 of 7455 at t_obs=0.000931992s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 23 of 7527 at t_obs=0.000940931s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 24 of 7735 at t_obs=0.000966262s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 25 of 7858 at t_obs=0.000982943s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 26 of 7943 at t_obs=0.000993963s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 27 of 7944 at t_obs=0.000994142s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 28 of 8051 at t_obs=0.00100588s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 29 of 8055 at t_obs=0.00100648s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 30 of 8079 at t_obs=0.00101022s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 31 of 8108 at t_obs=0.00101292s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 32 of 8545 at t_obs=0.00106879s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 33 of 8787 at t_obs=0.00110342s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 34 of 8792 at t_obs=0.0011038s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 35 of 9098 at t_obs=0.00114141s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 36 of 9129 at t_obs=0.00114496s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 37 of 9255 at t_obs=0.00116048s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 38 of 9261 at t_obs=0.0011617s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 39 of 9263 at t_obs=0.00116217s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 40 of 9396 at t_obs=0.0011761s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 41 of 9799 at t_obs=0.00123251s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 42 of 9834 at t_obs=0.00123729s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 43 of 9868 at t_obs=0.00124204s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 44 of 9904 at t_obs=0.00124662s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 45 of 10216 at t_obs=0.00128812s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 46 of 10475 at t_obs=0.00131838s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 47 of 10525 at t_obs=0.00132478s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 48 of 10563 at t_obs=0.00132996s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 49 of 10810 at t_obs=0.00136208s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 50 of 10923 at t_obs=0.00137554s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 51 of 10929 at t_obs=0.00137663s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 52 of 10966 at t_obs=0.00138225s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.0541 keV
+Storing event 53 of 11168 at t_obs=0.00141055s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 54 of 11273 at t_obs=0.00142397s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 55 of 11758 at t_obs=0.00148861s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 56 of 12587 at t_obs=0.00159176s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 57 of 12667 at t_obs=0.00160129s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 58 of 12678 at t_obs=0.00160316s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 59 of 12997 at t_obs=0.00164552s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 60 of 13154 at t_obs=0.00166467s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 61 of 13581 at t_obs=0.00172058s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 62 of 14410 at t_obs=0.00182457s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 63 of 14819 at t_obs=0.00187966s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 64 of 15125 at t_obs=0.00191883s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 65 of 15360 at t_obs=0.00194804s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 66 of 15584 at t_obs=0.00197772s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 67 of 15855 at t_obs=0.00201181s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 68 of 16103 at t_obs=0.00204498s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 69 of 16512 at t_obs=0.00209299s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 70 of 16991 at t_obs=0.00215631s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 71 of 17201 at t_obs=0.00217881s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 72 of 17299 at t_obs=0.00219015s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 73 of 17524 at t_obs=0.00221916s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 74 of 17963 at t_obs=0.00227636s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 75 of 18203 at t_obs=0.0023073s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 76 of 18243 at t_obs=0.00231182s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 77 of 18800 at t_obs=0.00238209s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 78 of 18946 at t_obs=0.00240057s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 79 of 19385 at t_obs=0.00245951s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 80 of 19774 at t_obs=0.002509s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 81 of 20160 at t_obs=0.00256179s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 82 of 20203 at t_obs=0.00256661s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 83 of 20400 at t_obs=0.00259264s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 84 of 20791 at t_obs=0.00263826s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 85 of 20952 at t_obs=0.00265733s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 86 of 20954 at t_obs=0.00265759s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 87 of 21227 at t_obs=0.0026943s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 88 of 21475 at t_obs=0.00272987s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 89 of 21733 at t_obs=0.00276094s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 90 of 21751 at t_obs=0.00276306s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 91 of 21756 at t_obs=0.00276358s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 92 of 22014 at t_obs=0.00279815s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 93 of 22278 at t_obs=0.00283344s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 94 of 22628 at t_obs=0.0028733s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 95 of 22795 at t_obs=0.00289273s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 96 of 23223 at t_obs=0.00294787s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 97 of 23817 at t_obs=0.00302769s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 98 of 23852 at t_obs=0.00303175s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 99 of 24248 at t_obs=0.00308641s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 100 of 24370 at t_obs=0.00310543s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 101 of 24469 at t_obs=0.00311731s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 102 of 24540 at t_obs=0.00312672s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 103 of 24987 at t_obs=0.00318522s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 104 of 25226 at t_obs=0.00321581s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 105 of 25419 at t_obs=0.00324057s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 106 of 25732 at t_obs=0.00327804s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 107 of 25753 at t_obs=0.00328015s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 108 of 25760 at t_obs=0.00328119s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 109 of 26187 at t_obs=0.00334014s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 110 of 26955 at t_obs=0.0034381s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 111 of 27037 at t_obs=0.00344705s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 112 of 27313 at t_obs=0.00348214s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 113 of 27349 at t_obs=0.00348605s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.3312 keV
+Storing event 114 of 27467 at t_obs=0.00350101s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 115 of 27592 at t_obs=0.00351753s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 116 of 27916 at t_obs=0.00355977s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 117 of 27946 at t_obs=0.00356345s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 118 of 28258 at t_obs=0.00360521s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 119 of 28291 at t_obs=0.00361034s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 120 of 28797 at t_obs=0.00367264s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 121 of 29120 at t_obs=0.00371614s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 122 of 29275 at t_obs=0.00373709s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 123 of 29578 at t_obs=0.00377394s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.6888 keV
+Storing event 124 of 29605 at t_obs=0.00377782s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 125 of 29644 at t_obs=0.00378415s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 126 of 30389 at t_obs=0.00387715s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 127 of 30550 at t_obs=0.0038974s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 128 of 30754 at t_obs=0.00392294s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 129 of 31177 at t_obs=0.00397512s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 130 of 31332 at t_obs=0.00399165s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 131 of 31578 at t_obs=0.0040194s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 132 of 32020 at t_obs=0.00407529s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 133 of 32038 at t_obs=0.00407832s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 134 of 34008 at t_obs=0.00433861s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 135 of 34910 at t_obs=0.00445388s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 136 of 35157 at t_obs=0.00448511s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 137 of 35225 at t_obs=0.00449338s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 138 of 35708 at t_obs=0.00455378s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 139 of 36289 at t_obs=0.0046272s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 140 of 36412 at t_obs=0.00464417s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 141 of 36606 at t_obs=0.00466834s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 142 of 36853 at t_obs=0.00470217s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 143 of 37227 at t_obs=0.00474834s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 144 of 37265 at t_obs=0.00475279s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 145 of 37424 at t_obs=0.00477258s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 146 of 37536 at t_obs=0.00478721s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 147 of 37904 at t_obs=0.00483665s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 148 of 38045 at t_obs=0.00485433s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 149 of 38411 at t_obs=0.00489895s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 150 of 38509 at t_obs=0.00491211s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 151 of 38992 at t_obs=0.00497874s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 152 of 39002 at t_obs=0.00498108s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 153 of 39429 at t_obs=0.00504054s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 154 of 39780 at t_obs=0.00508512s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 155 of 39781 at t_obs=0.00508547s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 156 of 39971 at t_obs=0.00510778s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 157 of 40093 at t_obs=0.00512675s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 158 of 40228 at t_obs=0.00514706s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 159 of 41547 at t_obs=0.00532019s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 160 of 41568 at t_obs=0.00532357s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 161 of 41958 at t_obs=0.00537135s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 162 of 42470 at t_obs=0.00543232s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 163 of 42994 at t_obs=0.00549987s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 164 of 43048 at t_obs=0.00550537s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 165 of 43183 at t_obs=0.00552318s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 166 of 43364 at t_obs=0.00554807s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 167 of 43432 at t_obs=0.00555796s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 168 of 43725 at t_obs=0.00559311s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 169 of 43823 at t_obs=0.00560512s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 170 of 44261 at t_obs=0.00565749s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.4415 keV
+Storing event 171 of 45224 at t_obs=0.00578078s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 172 of 45513 at t_obs=0.00581651s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 173 of 45651 at t_obs=0.005835s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 174 of 45791 at t_obs=0.00585437s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 175 of 45852 at t_obs=0.00586257s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.4329 keV
+Storing event 176 of 45965 at t_obs=0.00587564s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 177 of 45991 at t_obs=0.00587892s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 178 of 46512 at t_obs=0.00594265s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 179 of 46586 at t_obs=0.00594958s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 180 of 46775 at t_obs=0.00597864s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 181 of 46806 at t_obs=0.00598277s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 182 of 46809 at t_obs=0.00598305s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 183 of 47152 at t_obs=0.00602909s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 184 of 47229 at t_obs=0.00603948s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 185 of 47444 at t_obs=0.00607011s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 186 of 47521 at t_obs=0.00608051s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 187 of 47701 at t_obs=0.0061059s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 188 of 48093 at t_obs=0.0061583s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 189 of 48155 at t_obs=0.00616546s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 190 of 48184 at t_obs=0.00616986s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 191 of 48330 at t_obs=0.00618885s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 192 of 48344 at t_obs=0.00619109s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 193 of 49551 at t_obs=0.00634497s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 194 of 49888 at t_obs=0.00638512s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 195 of 50124 at t_obs=0.00641798s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 196 of 50175 at t_obs=0.00642402s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 197 of 50416 at t_obs=0.00645347s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 198 of 50466 at t_obs=0.00646047s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 20.784 keV
+Storing event 199 of 51449 at t_obs=0.00658545s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 200 of 51641 at t_obs=0.00660861s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 201 of 51787 at t_obs=0.00662738s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 202 of 51961 at t_obs=0.00665029s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 203 of 51969 at t_obs=0.00665142s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 204 of 52364 at t_obs=0.00670039s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 205 of 52554 at t_obs=0.00672531s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 206 of 52834 at t_obs=0.00676024s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 207 of 52849 at t_obs=0.00676255s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 208 of 53120 at t_obs=0.00679457s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 209 of 53199 at t_obs=0.00680442s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 210 of 53280 at t_obs=0.00681345s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 211 of 53524 at t_obs=0.00684424s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 212 of 53693 at t_obs=0.00686427s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 213 of 54099 at t_obs=0.00691767s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 214 of 54397 at t_obs=0.00695541s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 215 of 54450 at t_obs=0.00696266s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.5179 keV
+Storing event 216 of 54760 at t_obs=0.00699893s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 217 of 54981 at t_obs=0.00702991s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 218 of 55500 at t_obs=0.00709715s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 17.0701 keV
+Storing event 219 of 55522 at t_obs=0.00709982s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 220 of 55662 at t_obs=0.00711639s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 221 of 55756 at t_obs=0.0071268s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 222 of 56031 at t_obs=0.00716005s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 223 of 56055 at t_obs=0.00716243s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 224 of 56239 at t_obs=0.00718466s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 225 of 56551 at t_obs=0.00722504s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 226 of 56554 at t_obs=0.00722523s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 227 of 56643 at t_obs=0.00723464s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 228 of 56784 at t_obs=0.00725558s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 229 of 57435 at t_obs=0.00734038s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 230 of 57478 at t_obs=0.0073463s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 231 of 57638 at t_obs=0.00736674s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 232 of 57675 at t_obs=0.00737313s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 233 of 57710 at t_obs=0.00737673s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 234 of 57752 at t_obs=0.00738213s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 235 of 57774 at t_obs=0.00738491s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 236 of 58380 at t_obs=0.00746324s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 237 of 58893 at t_obs=0.00752792s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 238 of 59347 at t_obs=0.00758032s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 239 of 59545 at t_obs=0.00760594s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 240 of 59788 at t_obs=0.00763721s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 241 of 60104 at t_obs=0.00767553s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 242 of 60152 at t_obs=0.00768196s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 243 of 60164 at t_obs=0.00768341s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 244 of 60278 at t_obs=0.00769802s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.9165 keV
+Storing event 245 of 60493 at t_obs=0.00772705s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 246 of 60700 at t_obs=0.00775139s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 247 of 60717 at t_obs=0.00775344s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 248 of 60931 at t_obs=0.0077801s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 249 of 60979 at t_obs=0.00778571s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 250 of 61114 at t_obs=0.00780466s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 251 of 61329 at t_obs=0.00783458s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 252 of 61629 at t_obs=0.00787661s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 253 of 61983 at t_obs=0.00792353s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 254 of 62300 at t_obs=0.00797019s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 255 of 62376 at t_obs=0.00797987s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 256 of 62602 at t_obs=0.00801343s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 257 of 63592 at t_obs=0.0081396s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 258 of 63697 at t_obs=0.00815434s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 259 of 64042 at t_obs=0.00819733s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 260 of 64750 at t_obs=0.00828312s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 261 of 64848 at t_obs=0.00829402s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 262 of 65247 at t_obs=0.00834695s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 263 of 65459 at t_obs=0.00836993s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 264 of 65487 at t_obs=0.00837359s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 265 of 65823 at t_obs=0.00841899s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 266 of 66434 at t_obs=0.00849734s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 267 of 66673 at t_obs=0.0085311s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 268 of 66988 at t_obs=0.00856876s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 269 of 67324 at t_obs=0.00861386s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 270 of 67499 at t_obs=0.00863658s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 271 of 67554 at t_obs=0.00864228s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 272 of 67589 at t_obs=0.00864619s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 273 of 67759 at t_obs=0.00866893s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 274 of 68046 at t_obs=0.00870638s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 275 of 68153 at t_obs=0.00871801s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 276 of 68587 at t_obs=0.00877302s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 277 of 68634 at t_obs=0.00877746s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 278 of 68717 at t_obs=0.00878805s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 279 of 68907 at t_obs=0.00881246s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.2013 keV
+Storing event 280 of 69083 at t_obs=0.00883422s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 281 of 69375 at t_obs=0.00886965s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 282 of 70524 at t_obs=0.00901848s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 283 of 70525 at t_obs=0.00901867s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 284 of 70625 at t_obs=0.00903173s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 285 of 70663 at t_obs=0.00903644s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 286 of 70852 at t_obs=0.0090569s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 287 of 71149 at t_obs=0.00909443s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 288 of 71504 at t_obs=0.00914165s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 289 of 72029 at t_obs=0.00920733s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 290 of 72111 at t_obs=0.00921699s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 291 of 72360 at t_obs=0.00924721s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 292 of 72389 at t_obs=0.00925074s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.6167 keV
+Storing event 293 of 72571 at t_obs=0.00927487s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 294 of 72591 at t_obs=0.00927785s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 295 of 72766 at t_obs=0.00929833s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 296 of 73177 at t_obs=0.00935035s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 297 of 73366 at t_obs=0.00937374s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 298 of 73542 at t_obs=0.00939211s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 299 of 73643 at t_obs=0.00940628s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 300 of 74014 at t_obs=0.00945502s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 301 of 74094 at t_obs=0.00946445s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 302 of 74323 at t_obs=0.00949617s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 303 of 75463 at t_obs=0.00963466s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 304 of 75760 at t_obs=0.009672s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 305 of 75853 at t_obs=0.0096845s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 306 of 76845 at t_obs=0.00980987s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 307 of 76907 at t_obs=0.00981839s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 308 of 76908 at t_obs=0.00981855s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 309 of 76956 at t_obs=0.00982395s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 310 of 77099 at t_obs=0.00984748s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 311 of 77217 at t_obs=0.00986202s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 312 of 77273 at t_obs=0.00987098s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 313 of 77866 at t_obs=0.00994477s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 314 of 77984 at t_obs=0.00996152s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 315 of 78097 at t_obs=0.00997632s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 316 of 78321 at t_obs=0.0100018s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 317 of 79015 at t_obs=0.0100894s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 318 of 79331 at t_obs=0.0101281s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 319 of 79580 at t_obs=0.0101606s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 320 of 79864 at t_obs=0.0101943s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 321 of 80037 at t_obs=0.0102154s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 322 of 80071 at t_obs=0.010221s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 323 of 80105 at t_obs=0.0102253s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 324 of 80342 at t_obs=0.0102533s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 325 of 80508 at t_obs=0.0102722s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 326 of 80778 at t_obs=0.0103058s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 327 of 81138 at t_obs=0.0103548s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 328 of 81397 at t_obs=0.0103857s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 329 of 81469 at t_obs=0.0103948s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 330 of 81716 at t_obs=0.0104268s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 331 of 81883 at t_obs=0.0104495s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 23.91 keV
+Storing event 332 of 81998 at t_obs=0.0104643s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 333 of 82602 at t_obs=0.0105416s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 334 of 82788 at t_obs=0.0105663s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 335 of 83255 at t_obs=0.0106252s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 336 of 83397 at t_obs=0.0106426s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 337 of 83871 at t_obs=0.0107064s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 338 of 84283 at t_obs=0.010761s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 339 of 84829 at t_obs=0.0108291s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 340 of 85035 at t_obs=0.0108544s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 341 of 85891 at t_obs=0.0109617s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 342 of 86114 at t_obs=0.0109914s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 343 of 86247 at t_obs=0.0110083s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 344 of 86377 at t_obs=0.011027s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 345 of 86619 at t_obs=0.0110572s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 346 of 86694 at t_obs=0.0110678s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 347 of 87238 at t_obs=0.0111353s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 348 of 87242 at t_obs=0.0111358s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 349 of 87382 at t_obs=0.0111493s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 350 of 87488 at t_obs=0.0111628s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 351 of 87784 at t_obs=0.0111984s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 352 of 88304 at t_obs=0.0112659s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 20.3058 keV
+Storing event 353 of 88625 at t_obs=0.0113083s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 354 of 89165 at t_obs=0.0113801s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 355 of 89212 at t_obs=0.0113861s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 356 of 89458 at t_obs=0.0114149s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 357 of 89915 at t_obs=0.0114708s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 358 of 90631 at t_obs=0.0115612s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 359 of 91003 at t_obs=0.0116074s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 360 of 91280 at t_obs=0.0116414s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 361 of 92289 at t_obs=0.0117658s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 362 of 92520 at t_obs=0.0117935s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 363 of 93465 at t_obs=0.0119144s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 364 of 93586 at t_obs=0.0119324s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 365 of 93706 at t_obs=0.0119467s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 366 of 93849 at t_obs=0.0119654s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 367 of 93936 at t_obs=0.0119754s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 368 of 93990 at t_obs=0.0119808s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 369 of 94308 at t_obs=0.0120205s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 370 of 94404 at t_obs=0.0120295s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 371 of 94446 at t_obs=0.0120333s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 372 of 94494 at t_obs=0.012039s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 373 of 95003 at t_obs=0.0121001s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 374 of 95084 at t_obs=0.0121088s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 375 of 95515 at t_obs=0.0121628s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 376 of 95714 at t_obs=0.0121886s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 377 of 96016 at t_obs=0.0122272s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 378 of 96104 at t_obs=0.0122389s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 379 of 96323 at t_obs=0.0122651s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 380 of 96598 at t_obs=0.0122995s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 381 of 96720 at t_obs=0.0123144s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 382 of 97538 at t_obs=0.0124223s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 383 of 97860 at t_obs=0.0124625s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 384 of 98172 at t_obs=0.0125025s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 385 of 98777 at t_obs=0.012577s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 386 of 98812 at t_obs=0.0125823s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 387 of 98933 at t_obs=0.0125974s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 388 of 99024 at t_obs=0.0126097s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 389 of 99040 at t_obs=0.0126113s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 390 of 99147 at t_obs=0.0126246s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 391 of 99247 at t_obs=0.0126371s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 392 of 99360 at t_obs=0.0126505s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 393 of 100053 at t_obs=0.0127362s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 394 of 100329 at t_obs=0.0127692s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 395 of 100422 at t_obs=0.0127804s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 396 of 100573 at t_obs=0.0127983s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 397 of 100850 at t_obs=0.0128331s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 398 of 100951 at t_obs=0.0128483s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 399 of 101092 at t_obs=0.0128647s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 400 of 101174 at t_obs=0.012874s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 401 of 101516 at t_obs=0.0129157s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 402 of 101669 at t_obs=0.0129371s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 403 of 101688 at t_obs=0.0129386s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 404 of 102186 at t_obs=0.0130041s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 405 of 102466 at t_obs=0.0130406s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 406 of 102528 at t_obs=0.0130484s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 407 of 102598 at t_obs=0.0130575s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 408 of 102663 at t_obs=0.0130655s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 409 of 103013 at t_obs=0.013109s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 410 of 103785 at t_obs=0.0132001s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 411 of 104022 at t_obs=0.0132296s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 412 of 104438 at t_obs=0.0132802s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 413 of 104523 at t_obs=0.0132905s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 414 of 104546 at t_obs=0.0132939s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 415 of 105398 at t_obs=0.0133998s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 416 of 105462 at t_obs=0.0134078s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 417 of 105680 at t_obs=0.0134344s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 418 of 105846 at t_obs=0.0134545s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 419 of 105899 at t_obs=0.0134616s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 420 of 106254 at t_obs=0.0135014s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 421 of 106529 at t_obs=0.0135378s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 422 of 106632 at t_obs=0.0135492s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 22.344 keV
+Storing event 423 of 106897 at t_obs=0.0135826s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 424 of 107145 at t_obs=0.0136165s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 425 of 107697 at t_obs=0.0136952s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 426 of 107800 at t_obs=0.0137092s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 427 of 107868 at t_obs=0.013719s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 428 of 107870 at t_obs=0.0137191s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 429 of 108114 at t_obs=0.0137513s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 430 of 108299 at t_obs=0.0137746s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 431 of 108315 at t_obs=0.0137763s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 432 of 108574 at t_obs=0.01381s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 433 of 109234 at t_obs=0.013896s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 434 of 109632 at t_obs=0.0139471s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 435 of 110606 at t_obs=0.0140749s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 436 of 111666 at t_obs=0.0142131s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 437 of 111932 at t_obs=0.014246s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 438 of 112048 at t_obs=0.0142605s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 439 of 112955 at t_obs=0.014372s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 440 of 114185 at t_obs=0.0145225s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 441 of 114237 at t_obs=0.0145294s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 442 of 114521 at t_obs=0.014568s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 443 of 114692 at t_obs=0.0145867s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 444 of 114704 at t_obs=0.0145883s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 445 of 114793 at t_obs=0.0145979s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 446 of 115080 at t_obs=0.0146358s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 447 of 115308 at t_obs=0.0146662s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 448 of 115362 at t_obs=0.0146722s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 449 of 115684 at t_obs=0.014711s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 450 of 115758 at t_obs=0.0147216s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 451 of 115866 at t_obs=0.0147377s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 452 of 116506 at t_obs=0.0148187s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 453 of 117310 at t_obs=0.0149195s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 454 of 117428 at t_obs=0.0149371s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 455 of 117541 at t_obs=0.0149503s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 456 of 117552 at t_obs=0.014952s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 457 of 118149 at t_obs=0.0150238s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 458 of 118431 at t_obs=0.0150628s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 459 of 118529 at t_obs=0.0150766s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 460 of 118587 at t_obs=0.0150826s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 461 of 118716 at t_obs=0.0150989s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 462 of 119036 at t_obs=0.0151362s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.3911 keV
+Storing event 463 of 119415 at t_obs=0.0151872s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 464 of 119922 at t_obs=0.0152477s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 465 of 121098 at t_obs=0.0154005s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 466 of 121697 at t_obs=0.0154773s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 467 of 122643 at t_obs=0.0155933s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 468 of 123414 at t_obs=0.0156948s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 469 of 124195 at t_obs=0.0157937s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 470 of 124318 at t_obs=0.0158092s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 471 of 124780 at t_obs=0.0158693s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 472 of 124835 at t_obs=0.0158764s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 473 of 124998 at t_obs=0.0158941s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 474 of 125041 at t_obs=0.0158996s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 475 of 125426 at t_obs=0.0159449s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 476 of 125454 at t_obs=0.0159486s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 0.72446 keV
+Storing event 477 of 125551 at t_obs=0.0159625s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 478 of 126084 at t_obs=0.0160306s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 479 of 126171 at t_obs=0.0160454s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 480 of 127599 at t_obs=0.0162286s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.5831 keV
+Storing event 481 of 127686 at t_obs=0.0162392s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 482 of 127756 at t_obs=0.016247s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 483 of 127869 at t_obs=0.0162628s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 484 of 128039 at t_obs=0.0162833s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 485 of 128425 at t_obs=0.0163308s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 486 of 128583 at t_obs=0.0163514s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 487 of 128726 at t_obs=0.016369s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 488 of 129327 at t_obs=0.0164463s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 489 of 129429 at t_obs=0.0164583s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 490 of 129618 at t_obs=0.0164854s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 491 of 130235 at t_obs=0.0165604s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 492 of 130405 at t_obs=0.0165809s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 493 of 130626 at t_obs=0.0166105s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 494 of 130845 at t_obs=0.0166377s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 495 of 131154 at t_obs=0.0166771s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 496 of 131186 at t_obs=0.0166811s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.8051 keV
+Storing event 497 of 131278 at t_obs=0.0166918s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 498 of 131456 at t_obs=0.0167156s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 499 of 131804 at t_obs=0.0167607s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 500 of 131934 at t_obs=0.0167767s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 501 of 131966 at t_obs=0.0167818s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 502 of 132213 at t_obs=0.0168134s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 503 of 132328 at t_obs=0.0168291s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 504 of 132491 at t_obs=0.0168479s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 505 of 132579 at t_obs=0.0168586s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 506 of 132638 at t_obs=0.0168666s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 507 of 132670 at t_obs=0.0168702s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 508 of 132695 at t_obs=0.0168732s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 509 of 132943 at t_obs=0.0169038s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 510 of 133109 at t_obs=0.0169248s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 511 of 133117 at t_obs=0.0169256s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 512 of 133353 at t_obs=0.0169575s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 513 of 133933 at t_obs=0.0170315s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 514 of 133977 at t_obs=0.017037s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 515 of 134053 at t_obs=0.017048s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 516 of 134158 at t_obs=0.0170615s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 517 of 134201 at t_obs=0.0170664s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 518 of 134514 at t_obs=0.0171069s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 519 of 134629 at t_obs=0.017123s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 520 of 134875 at t_obs=0.0171569s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.5324 keV
+Storing event 521 of 135273 at t_obs=0.0172052s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 522 of 135599 at t_obs=0.0172487s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 523 of 136195 at t_obs=0.0173177s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 524 of 136251 at t_obs=0.0173259s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 525 of 136308 at t_obs=0.0173329s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.4349 keV
+Storing event 526 of 136668 at t_obs=0.0173795s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 527 of 136880 at t_obs=0.0174041s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 528 of 137222 at t_obs=0.017447s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 529 of 137390 at t_obs=0.0174701s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 530 of 137944 at t_obs=0.0175378s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 531 of 138314 at t_obs=0.0175836s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 532 of 138798 at t_obs=0.0176404s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 533 of 139972 at t_obs=0.0177912s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 534 of 140208 at t_obs=0.0178184s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 535 of 140364 at t_obs=0.0178385s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 536 of 141095 at t_obs=0.0179268s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 537 of 141291 at t_obs=0.0179522s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 538 of 141901 at t_obs=0.0180235s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 539 of 142077 at t_obs=0.0180493s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 540 of 142210 at t_obs=0.0180654s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 541 of 143151 at t_obs=0.0181817s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 542 of 143185 at t_obs=0.0181851s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 543 of 143247 at t_obs=0.0181931s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 544 of 143298 at t_obs=0.0182s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 545 of 143415 at t_obs=0.0182169s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 546 of 144033 at t_obs=0.0182993s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 547 of 144043 at t_obs=0.0183009s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 548 of 144342 at t_obs=0.0183459s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 549 of 144446 at t_obs=0.0183593s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 550 of 145263 at t_obs=0.0184681s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 551 of 145403 at t_obs=0.0184886s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 552 of 145458 at t_obs=0.0184952s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 553 of 145479 at t_obs=0.0184981s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 554 of 145523 at t_obs=0.0185038s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 555 of 145653 at t_obs=0.0185211s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 556 of 146157 at t_obs=0.0185815s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 557 of 146498 at t_obs=0.0186282s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 558 of 146755 at t_obs=0.0186621s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 559 of 147153 at t_obs=0.0187154s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 560 of 147504 at t_obs=0.0187592s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 561 of 147530 at t_obs=0.0187619s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 562 of 147548 at t_obs=0.0187648s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 563 of 147706 at t_obs=0.0187866s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 564 of 148002 at t_obs=0.0188251s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 565 of 148156 at t_obs=0.0188439s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 566 of 148257 at t_obs=0.0188576s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 567 of 148526 at t_obs=0.0188911s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 568 of 148584 at t_obs=0.0188982s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 569 of 148739 at t_obs=0.0189177s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 570 of 148760 at t_obs=0.0189203s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 571 of 149335 at t_obs=0.0189893s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 572 of 149436 at t_obs=0.0190016s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 573 of 149664 at t_obs=0.0190321s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 574 of 150007 at t_obs=0.0190715s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 575 of 150086 at t_obs=0.019081s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 576 of 150153 at t_obs=0.0190884s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 577 of 150628 at t_obs=0.0191466s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 578 of 150780 at t_obs=0.0191681s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 579 of 150852 at t_obs=0.0191768s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 580 of 150912 at t_obs=0.0191833s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 581 of 150962 at t_obs=0.0191887s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 582 of 151001 at t_obs=0.0191928s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 583 of 151034 at t_obs=0.0191968s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 584 of 151126 at t_obs=0.0192112s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 585 of 151739 at t_obs=0.0192893s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 586 of 151860 at t_obs=0.0193058s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 587 of 151873 at t_obs=0.0193068s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 588 of 152179 at t_obs=0.0193427s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 589 of 152664 at t_obs=0.0194017s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 590 of 153238 at t_obs=0.0194764s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 591 of 153294 at t_obs=0.0194837s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 592 of 153493 at t_obs=0.0195097s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 593 of 154331 at t_obs=0.0196127s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 594 of 154532 at t_obs=0.0196406s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 595 of 154549 at t_obs=0.0196425s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 596 of 155112 at t_obs=0.0197133s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 597 of 155605 at t_obs=0.0197718s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 598 of 156111 at t_obs=0.0198325s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 599 of 156580 at t_obs=0.0198977s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 600 of 157157 at t_obs=0.0199709s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 601 of 157215 at t_obs=0.0199804s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 602 of 157533 at t_obs=0.020021s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 603 of 158001 at t_obs=0.0200786s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 604 of 158312 at t_obs=0.0201195s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 605 of 158645 at t_obs=0.020163s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 606 of 158758 at t_obs=0.0201793s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 607 of 158806 at t_obs=0.0201864s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 608 of 159010 at t_obs=0.0202141s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 609 of 159210 at t_obs=0.020241s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 610 of 159508 at t_obs=0.020281s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 611 of 159536 at t_obs=0.020285s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 612 of 159557 at t_obs=0.0202886s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 613 of 159788 at t_obs=0.0203156s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 614 of 159936 at t_obs=0.0203328s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 615 of 160359 at t_obs=0.0203857s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 616 of 160534 at t_obs=0.0204048s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 617 of 161268 at t_obs=0.020497s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 618 of 161463 at t_obs=0.02052s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 619 of 161881 at t_obs=0.0205711s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 620 of 162264 at t_obs=0.0206187s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 621 of 162489 at t_obs=0.0206458s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 622 of 162620 at t_obs=0.020664s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 623 of 162623 at t_obs=0.0206642s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 624 of 162734 at t_obs=0.0206771s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 625 of 162737 at t_obs=0.0206775s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 626 of 162884 at t_obs=0.0206933s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 627 of 162901 at t_obs=0.0206954s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 628 of 163221 at t_obs=0.0207375s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 629 of 164157 at t_obs=0.0208573s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 630 of 164231 at t_obs=0.0208679s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 631 of 164372 at t_obs=0.0208863s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 632 of 164618 at t_obs=0.0209191s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 633 of 164869 at t_obs=0.0209542s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 634 of 164947 at t_obs=0.0209638s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 635 of 165037 at t_obs=0.0209737s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 636 of 165690 at t_obs=0.0210543s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 637 of 165966 at t_obs=0.0210891s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 638 of 165970 at t_obs=0.0210893s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 639 of 166139 at t_obs=0.021108s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 640 of 166212 at t_obs=0.0211185s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 641 of 166602 at t_obs=0.0211667s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 642 of 167170 at t_obs=0.0212451s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 643 of 167206 at t_obs=0.0212502s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 644 of 167708 at t_obs=0.0213149s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 645 of 167735 at t_obs=0.0213187s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 646 of 168126 at t_obs=0.0213723s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 647 of 168275 at t_obs=0.0213891s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 648 of 168646 at t_obs=0.0214367s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 649 of 169799 at t_obs=0.0215905s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 650 of 169959 at t_obs=0.0216095s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 651 of 170094 at t_obs=0.0216287s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 652 of 170466 at t_obs=0.0216746s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 653 of 170614 at t_obs=0.0216934s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 654 of 170698 at t_obs=0.0217045s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 655 of 170888 at t_obs=0.021728s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 656 of 171313 at t_obs=0.0217826s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 657 of 171831 at t_obs=0.0218454s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 658 of 172446 at t_obs=0.0219243s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 659 of 172449 at t_obs=0.0219244s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 660 of 172589 at t_obs=0.0219426s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 661 of 172621 at t_obs=0.0219475s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 662 of 173552 at t_obs=0.0220733s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 663 of 173977 at t_obs=0.0221227s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 664 of 174362 at t_obs=0.0221735s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 665 of 174682 at t_obs=0.0222139s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 666 of 174691 at t_obs=0.0222146s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 667 of 174784 at t_obs=0.0222253s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 668 of 174897 at t_obs=0.0222377s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 669 of 175051 at t_obs=0.0222584s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 670 of 175052 at t_obs=0.0222585s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 22.8194 keV
+Storing event 671 of 175231 at t_obs=0.0222809s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 672 of 175327 at t_obs=0.0222902s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 673 of 175533 at t_obs=0.0223175s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 674 of 175983 at t_obs=0.0223714s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 675 of 176012 at t_obs=0.022375s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 676 of 176101 at t_obs=0.0223858s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 677 of 176532 at t_obs=0.0224409s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 678 of 176681 at t_obs=0.0224596s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 679 of 176694 at t_obs=0.0224613s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 680 of 176733 at t_obs=0.0224668s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 681 of 176946 at t_obs=0.022495s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 682 of 177081 at t_obs=0.0225115s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 683 of 177513 at t_obs=0.0225701s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 684 of 178674 at t_obs=0.0227216s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 685 of 178779 at t_obs=0.0227354s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 686 of 178865 at t_obs=0.0227442s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 687 of 178996 at t_obs=0.0227627s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 688 of 179230 at t_obs=0.0227936s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 689 of 179684 at t_obs=0.0228542s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 690 of 180382 at t_obs=0.0229434s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 691 of 180425 at t_obs=0.0229487s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 692 of 180575 at t_obs=0.022965s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 693 of 180643 at t_obs=0.0229745s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 694 of 181467 at t_obs=0.0230744s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 695 of 181510 at t_obs=0.0230786s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 696 of 181579 at t_obs=0.0230879s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 697 of 181652 at t_obs=0.0230946s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 698 of 181846 at t_obs=0.0231182s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 699 of 181868 at t_obs=0.0231205s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 700 of 182052 at t_obs=0.0231495s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 701 of 182068 at t_obs=0.023152s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 702 of 182105 at t_obs=0.0231558s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 703 of 182386 at t_obs=0.0231914s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 704 of 182902 at t_obs=0.0232582s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 705 of 183153 at t_obs=0.0232864s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 706 of 183607 at t_obs=0.0233403s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 707 of 184183 at t_obs=0.0234132s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 708 of 184500 at t_obs=0.0234522s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 709 of 184610 at t_obs=0.023467s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 710 of 184690 at t_obs=0.0234777s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 711 of 184924 at t_obs=0.0235101s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 712 of 185496 at t_obs=0.0235795s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 713 of 185533 at t_obs=0.0235844s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 714 of 185915 at t_obs=0.0236369s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 715 of 185945 at t_obs=0.0236397s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 716 of 186480 at t_obs=0.0237026s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 717 of 187466 at t_obs=0.0238258s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 718 of 187569 at t_obs=0.0238394s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 719 of 187614 at t_obs=0.0238439s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 720 of 188370 at t_obs=0.023941s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 721 of 188515 at t_obs=0.0239583s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 722 of 188618 at t_obs=0.0239707s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 723 of 188762 at t_obs=0.0239887s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 724 of 189318 at t_obs=0.0240582s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 725 of 189459 at t_obs=0.0240756s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 726 of 189641 at t_obs=0.0240977s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 727 of 189987 at t_obs=0.0241414s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 728 of 189989 at t_obs=0.0241417s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 729 of 190038 at t_obs=0.0241494s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 730 of 190503 at t_obs=0.0242093s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 731 of 191714 at t_obs=0.0243604s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 732 of 191992 at t_obs=0.024395s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 733 of 192105 at t_obs=0.0244097s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 734 of 192148 at t_obs=0.0244146s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 735 of 192585 at t_obs=0.024468s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 736 of 192846 at t_obs=0.0245007s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 737 of 193439 at t_obs=0.024576s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 738 of 193458 at t_obs=0.0245785s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 739 of 193812 at t_obs=0.0246237s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 740 of 193830 at t_obs=0.0246263s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 741 of 194143 at t_obs=0.0246665s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 742 of 194740 at t_obs=0.0247401s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 743 of 194757 at t_obs=0.0247416s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 744 of 194960 at t_obs=0.0247674s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 745 of 195177 at t_obs=0.0247956s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 746 of 195680 at t_obs=0.0248617s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 747 of 195777 at t_obs=0.0248737s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 748 of 196203 at t_obs=0.0249291s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 749 of 196581 at t_obs=0.0249755s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 750 of 196767 at t_obs=0.0249975s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 751 of 197954 at t_obs=0.0251546s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 752 of 198253 at t_obs=0.0251927s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 753 of 198292 at t_obs=0.0251965s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 754 of 198347 at t_obs=0.0252042s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 755 of 199020 at t_obs=0.0252838s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 756 of 199371 at t_obs=0.0253293s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 757 of 199427 at t_obs=0.0253351s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 758 of 199902 at t_obs=0.0254026s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 759 of 199972 at t_obs=0.0254115s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 760 of 200010 at t_obs=0.0254154s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 761 of 200577 at t_obs=0.0254904s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 762 of 200657 at t_obs=0.0255006s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 763 of 200967 at t_obs=0.0255401s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 764 of 201398 at t_obs=0.025597s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 765 of 201460 at t_obs=0.0256033s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 766 of 201747 at t_obs=0.0256367s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 767 of 202063 at t_obs=0.0256763s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 768 of 202346 at t_obs=0.025713s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 769 of 202352 at t_obs=0.0257139s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 770 of 202426 at t_obs=0.0257241s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 771 of 202433 at t_obs=0.0257249s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 772 of 202608 at t_obs=0.0257448s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 773 of 202855 at t_obs=0.0257748s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 774 of 203266 at t_obs=0.0258286s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 775 of 203345 at t_obs=0.0258385s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 776 of 205014 at t_obs=0.0260523s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 777 of 205390 at t_obs=0.0261019s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 778 of 205639 at t_obs=0.0261341s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 779 of 206011 at t_obs=0.0261787s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 780 of 206133 at t_obs=0.0261922s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 781 of 206282 at t_obs=0.0262121s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.0701 keV
+Storing event 782 of 206661 at t_obs=0.0262554s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 783 of 206757 at t_obs=0.0262697s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 784 of 207311 at t_obs=0.0263433s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 785 of 207362 at t_obs=0.0263508s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 786 of 207443 at t_obs=0.0263604s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 787 of 207452 at t_obs=0.0263611s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 788 of 207571 at t_obs=0.0263762s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 789 of 207604 at t_obs=0.0263812s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 790 of 207656 at t_obs=0.0263854s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 791 of 207975 at t_obs=0.026425s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 792 of 208643 at t_obs=0.0265037s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 793 of 208886 at t_obs=0.026539s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 794 of 209642 at t_obs=0.0266403s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 795 of 209651 at t_obs=0.0266412s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 796 of 209778 at t_obs=0.0266593s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 797 of 209793 at t_obs=0.0266615s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 798 of 209925 at t_obs=0.026678s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 799 of 209959 at t_obs=0.0266828s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 23.8839 keV
+Storing event 800 of 210976 at t_obs=0.0268053s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.9472 keV
+Storing event 801 of 211078 at t_obs=0.0268172s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 802 of 211088 at t_obs=0.026819s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 803 of 211172 at t_obs=0.0268313s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 804 of 211431 at t_obs=0.0268645s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 805 of 211525 at t_obs=0.0268746s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 806 of 211621 at t_obs=0.0268852s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 807 of 211763 at t_obs=0.0268995s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 808 of 212289 at t_obs=0.0269666s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 809 of 212624 at t_obs=0.0270077s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 810 of 212907 at t_obs=0.0270449s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 811 of 213402 at t_obs=0.0271031s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 812 of 213430 at t_obs=0.0271072s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 813 of 213454 at t_obs=0.0271098s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 814 of 213593 at t_obs=0.0271262s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 815 of 213695 at t_obs=0.0271395s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 816 of 214050 at t_obs=0.0271863s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 817 of 214165 at t_obs=0.027202s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 818 of 214423 at t_obs=0.0272356s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 819 of 214562 at t_obs=0.0272531s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 820 of 214954 at t_obs=0.0273034s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 821 of 215453 at t_obs=0.0273638s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 822 of 215621 at t_obs=0.0273865s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 823 of 215625 at t_obs=0.0273868s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 824 of 215772 at t_obs=0.0274064s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 825 of 216494 at t_obs=0.0274958s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 826 of 217056 at t_obs=0.0275627s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 827 of 217297 at t_obs=0.0275914s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 828 of 217363 at t_obs=0.0275995s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 829 of 218269 at t_obs=0.0277222s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 830 of 218532 at t_obs=0.0277564s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 831 of 218714 at t_obs=0.0277806s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 832 of 218803 at t_obs=0.0277931s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 833 of 218850 at t_obs=0.0277984s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 834 of 219136 at t_obs=0.0278362s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 835 of 219801 at t_obs=0.0279223s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 836 of 219998 at t_obs=0.0279482s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 837 of 220189 at t_obs=0.0279688s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 838 of 220239 at t_obs=0.0279752s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 839 of 220568 at t_obs=0.0280169s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 840 of 220718 at t_obs=0.0280352s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 841 of 221058 at t_obs=0.0280756s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 842 of 221116 at t_obs=0.0280818s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 843 of 221383 at t_obs=0.0281168s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 844 of 221668 at t_obs=0.0281542s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 845 of 221679 at t_obs=0.0281557s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 846 of 221790 at t_obs=0.0281722s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 847 of 221920 at t_obs=0.0281896s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 848 of 222809 at t_obs=0.0283065s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 849 of 222876 at t_obs=0.0283153s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 850 of 222924 at t_obs=0.0283232s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 851 of 223185 at t_obs=0.0283583s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 852 of 224409 at t_obs=0.0285165s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 853 of 224481 at t_obs=0.0285265s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 854 of 224757 at t_obs=0.0285577s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 855 of 224827 at t_obs=0.028567s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 856 of 224849 at t_obs=0.02857s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 857 of 225084 at t_obs=0.0285979s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 858 of 225112 at t_obs=0.0286004s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 859 of 225210 at t_obs=0.0286146s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 860 of 225231 at t_obs=0.0286175s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 861 of 225732 at t_obs=0.0286803s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 862 of 225810 at t_obs=0.0286894s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 863 of 226456 at t_obs=0.0287706s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 864 of 226486 at t_obs=0.0287738s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 865 of 226587 at t_obs=0.0287879s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 866 of 226659 at t_obs=0.0287977s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 867 of 226824 at t_obs=0.0288185s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 868 of 226895 at t_obs=0.0288282s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 869 of 227401 at t_obs=0.0288926s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.0047 keV
+Storing event 870 of 227522 at t_obs=0.0289101s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 871 of 227523 at t_obs=0.0289102s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 23.7041 keV
+Storing event 872 of 227836 at t_obs=0.0289493s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.7725 keV
+Storing event 873 of 227853 at t_obs=0.0289517s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 874 of 227862 at t_obs=0.0289525s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 875 of 227941 at t_obs=0.028962s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 876 of 228031 at t_obs=0.0289757s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 877 of 228052 at t_obs=0.0289784s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 878 of 228223 at t_obs=0.0290041s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 879 of 228784 at t_obs=0.0290745s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 880 of 228822 at t_obs=0.0290787s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 881 of 228974 at t_obs=0.0291008s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 882 of 229022 at t_obs=0.0291071s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 883 of 229059 at t_obs=0.0291129s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 884 of 229676 at t_obs=0.029192s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 885 of 229690 at t_obs=0.0291949s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 886 of 229705 at t_obs=0.0291972s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 887 of 230151 at t_obs=0.0292525s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 888 of 230176 at t_obs=0.0292556s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 889 of 230366 at t_obs=0.0292821s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 890 of 230424 at t_obs=0.0292895s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.8888 keV
+Storing event 891 of 230600 at t_obs=0.0293125s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 892 of 230608 at t_obs=0.0293136s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 893 of 230852 at t_obs=0.0293464s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 894 of 231142 at t_obs=0.029383s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 895 of 231317 at t_obs=0.0294048s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 896 of 231560 at t_obs=0.0294352s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 9.55491 keV
+Storing event 897 of 232356 at t_obs=0.0295337s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 898 of 232363 at t_obs=0.0295344s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 899 of 232369 at t_obs=0.0295353s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 900 of 232909 at t_obs=0.0296055s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 901 of 232912 at t_obs=0.0296059s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 902 of 233384 at t_obs=0.0296666s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 903 of 233559 at t_obs=0.029687s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 904 of 233836 at t_obs=0.0297188s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 905 of 234777 at t_obs=0.0298454s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 906 of 235197 at t_obs=0.0299047s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 907 of 235248 at t_obs=0.029912s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 908 of 235321 at t_obs=0.029921s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 909 of 235772 at t_obs=0.0299764s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 910 of 236363 at t_obs=0.0300566s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 911 of 236560 at t_obs=0.03008s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 912 of 236577 at t_obs=0.0300819s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 913 of 236739 at t_obs=0.030107s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 914 of 236965 at t_obs=0.0301339s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 915 of 237326 at t_obs=0.0301777s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 916 of 237548 at t_obs=0.030204s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 917 of 237822 at t_obs=0.0302389s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 918 of 238258 at t_obs=0.0302908s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 919 of 238614 at t_obs=0.0303363s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.5063 keV
+Storing event 920 of 238827 at t_obs=0.0303621s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 921 of 238980 at t_obs=0.0303805s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 922 of 239051 at t_obs=0.0303888s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 923 of 239180 at t_obs=0.0304046s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 924 of 239182 at t_obs=0.0304051s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 925 of 239500 at t_obs=0.0304484s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 926 of 239759 at t_obs=0.0304831s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 927 of 240039 at t_obs=0.0305182s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 928 of 240103 at t_obs=0.0305254s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 929 of 240196 at t_obs=0.0305377s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 930 of 240377 at t_obs=0.0305602s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 931 of 240492 at t_obs=0.0305762s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 932 of 240524 at t_obs=0.0305802s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 933 of 240644 at t_obs=0.0305937s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 934 of 240782 at t_obs=0.0306143s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 935 of 240868 at t_obs=0.0306262s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 936 of 240946 at t_obs=0.0306373s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 937 of 241268 at t_obs=0.0306751s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 938 of 242223 at t_obs=0.0308014s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 939 of 242472 at t_obs=0.0308383s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 940 of 243030 at t_obs=0.0309148s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 941 of 243256 at t_obs=0.030942s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 942 of 243504 at t_obs=0.0309758s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 943 of 243635 at t_obs=0.0309921s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 944 of 243700 at t_obs=0.0309993s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 945 of 243978 at t_obs=0.031033s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 946 of 244091 at t_obs=0.0310468s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 947 of 244535 at t_obs=0.0311004s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.3798 keV
+Storing event 948 of 244772 at t_obs=0.0311327s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 949 of 245116 at t_obs=0.0311767s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 24.8988 keV
+Storing event 950 of 245280 at t_obs=0.0311989s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 951 of 245357 at t_obs=0.0312117s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 952 of 245480 at t_obs=0.0312284s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 953 of 246116 at t_obs=0.0313105s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 954 of 246346 at t_obs=0.031339s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 955 of 246617 at t_obs=0.0313721s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 956 of 246746 at t_obs=0.031391s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 957 of 246906 at t_obs=0.0314117s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 958 of 247014 at t_obs=0.0314267s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 959 of 247041 at t_obs=0.0314308s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 960 of 247362 at t_obs=0.0314725s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 961 of 248084 at t_obs=0.0315572s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 962 of 248733 at t_obs=0.0316474s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 963 of 248810 at t_obs=0.0316559s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 964 of 248891 at t_obs=0.0316663s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 965 of 249109 at t_obs=0.0316921s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 966 of 249251 at t_obs=0.0317114s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 967 of 249549 at t_obs=0.031747s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 968 of 250797 at t_obs=0.0319112s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 969 of 250939 at t_obs=0.0319299s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 970 of 251181 at t_obs=0.0319611s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 971 of 251291 at t_obs=0.0319759s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 972 of 251744 at t_obs=0.0320304s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 973 of 252542 at t_obs=0.0321298s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 974 of 254362 at t_obs=0.032374s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 975 of 254400 at t_obs=0.0323789s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 976 of 254670 at t_obs=0.0324103s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 977 of 254704 at t_obs=0.032414s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 978 of 254919 at t_obs=0.032442s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 979 of 255071 at t_obs=0.032459s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 980 of 255463 at t_obs=0.0325083s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 981 of 255485 at t_obs=0.0325109s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 982 of 255741 at t_obs=0.0325432s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 983 of 255931 at t_obs=0.0325637s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 984 of 256166 at t_obs=0.0325959s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 985 of 256478 at t_obs=0.0326354s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 986 of 256764 at t_obs=0.0326731s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 987 of 256994 at t_obs=0.0327014s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 988 of 257133 at t_obs=0.0327184s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 989 of 257184 at t_obs=0.0327256s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 990 of 257433 at t_obs=0.0327568s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 991 of 257577 at t_obs=0.0327751s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 992 of 257740 at t_obs=0.0327967s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 993 of 257777 at t_obs=0.0327991s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 994 of 258381 at t_obs=0.0328785s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 995 of 258749 at t_obs=0.0329268s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 996 of 259350 at t_obs=0.0330038s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 997 of 259540 at t_obs=0.0330278s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 998 of 259615 at t_obs=0.0330382s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 999 of 259876 at t_obs=0.0330702s ... Please stand by... Done
+Hit in scintillator "CSICylinder" at (0, 0, 0.05)  with 25 keV
+Storing event 1000 of 260048 at t_obs=0.0330924s ... Please stand by... Done
+
+
+Summary for run FFPS
+
+Total number of generated particles:     260048
+  Source One:                            260048
+
+Total CPU time spent in run:             40.1149 sec
+Time spent per event:                    0.00015426 sec
+
+Observation time:                        0.0330924 sec
+
+Graphics systems deleted.
+Visualization Manager deleting...

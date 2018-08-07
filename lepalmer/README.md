@@ -2,6 +2,8 @@ This README document explains the outline of the larger documented README link f
 
 The larger documented README can be found at this link: [ReadMe--Localization Code Information](https://docs.google.com/document/d/1x1kDDz5EkpokAVYvPcEUN7cDeyFaSucVGyu95ZPbbqQ/edit?usp=sharing)
 
+Beginning Remark: **Information regarding what the directories in this directory are used for can be found in the larger README. In addition, if it occurs to the user that there are paths written to folders/files that are not correct, that is because when uploading the folders/files to gitHub, they will be coming directly from a local computer**.
+
 The first section of the larger README, entitled Preliminary Process,
 contains information on the preliminary process of making the localization code--specifically, figuring out how to create simulation files as well as making plots to understand how the effective area of one BurstCube detector compares to either a certain energy, a certain azimuth, or a certain zenith.
 

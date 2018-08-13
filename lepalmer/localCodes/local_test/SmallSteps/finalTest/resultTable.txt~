@@ -1,0 +1,15 @@
+# %ECSV 0.9
+# ---
+# datatype:
+# - {name: SourceDet1, datatype: int64}
+# - {name: SourceDet2, datatype: int64}
+# - {name: SourceDet3, datatype: int64}
+# - {name: SourceDet4, datatype: int64}
+# - {name: energy, datatype: float64}
+# - {name: zenith, datatype: float64}
+# - {name: azimuth, datatype: int64}
+# schema: astropy-2.0
+SourceDet1 SourceDet2 SourceDet3 SourceDet4 energy zenith azimuth
+311 397 200 192 100.0 15.0 240
+311 397 200 192 100.0 15.0 240
+311 397 200 192 100.0 15.0 240

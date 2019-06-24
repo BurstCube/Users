@@ -11,21 +11,26 @@
 ## Steps for using the code:
 #### 1. Log on to the lab computer. Use badge in the built-in card reader and eneter PIN. Make sure that the account name is entered into the hint space.
 #### 2. Check to make sure the lab laptopn and scope are connected to the router via ethernet.
-## Note on communicating to the scope:
-### Make sure the scope and the lab computer are both plugged into the router (but not the Internet port). This sets the IP address of the scope.  
+#### Note on communicating to the scope:
+#### Make sure the scope and the lab computer are both plugged into the router (but not the Internet port). This sets the IP address of the scope.  
 #### 3. Open Windows Powershell. cd into BurstCube\Users\ibrewer. This is where the Energy_Resolution_Scope notebook is.
 #### 4. Open Jupyter Notebook/ open the Energy_Resolution_Scope notebook.
 #### 5. Import necessary packages.
 #### 6. Set the scope IP address in the scope handler. Enter the IP address of the scope (as assigned by the router) as a string into the hander "scope = sdaq.Scope(address="10.10.10.2")." To check the IP address of the scope, you can go to the Utility menu and check the LAN settings. Sometimes a LAN reset is required.
 #### 7. Create a new h5py file. (The command f = h5py.File('file_name', 'a') creates a new file.)
-## Note on h5py files:
-### Make sure, once you are done with a file, you close the file! h5py gets very upset if you try and open a new file or kill the kernel if an h5py file is still open. Use the ***f.close()*** function to close files.
-### Documentation for h5py can be found at http://docs.h5py.org/en/stable/.
-## Naming scheme for files:
-### The naming scheme for files is ***BurstCube_name of test_source name_date***, ex "BurstCube_PostVibe_Cs137_061419." You can create multiple data sets within a file (you can take multiple runs and save them to one file).
+#### Note on h5py files:
+#### Make sure, once you are done with a file, you close the file! h5py gets very upset if you try and open a new file or kill the kernel if an h5py file is still open. Use the ***f.close()*** function to close files.
+#### Documentation for h5py can be found at http://docs.h5py.org/en/stable/.
+#### Naming scheme for files:
+#### The naming scheme for files is ***BurstCube_name of test_source name_date***, ex "BurstCube_PostVibe_Cs137_061419." You can create multiple data sets within a file (you can take multiple runs and save them to one file).
 #### 8. Create/save scaling dictionary.
 #### 9. Define get_data function.
-#### 10. 
-## Naming scheme for data sets:
-### The naming scheme for data sets is ***filename_run#***, ex. "BurstCube_PostVibe_Cs137_061419_run1."
+#### 10. Take data; enter number of runs and data set name. The number of runs is 30000.
+#### Naming scheme for data sets:
+#### The naming scheme for data sets is ***filename_run#***, ex. "BurstCube_PostVibe_Cs137_061419_run1."
+#### 11. Once the data has been taken, list the data sets within the file with ***list(f.keys())*** to make sure your run is there.
+#### 12. Plot some of the data and determine pulse peaks.
+#### 13. Save peaks data (manually change the data set name for the peaks).
+#### 14. Plot histograms and calculate the energy resolution with errors. For the fitted Gaussian, edit the code to make best guesses for the mean peak value, amplitude, and sigma.
+#### 15. If no more data sets are being added to the file, close the file.
 

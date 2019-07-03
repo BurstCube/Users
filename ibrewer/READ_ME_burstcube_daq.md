@@ -1,6 +1,6 @@
-# Documentation for the Energy_Resolution_Scope code
+# Documentation for the burstcube_test_daq.ipynb code
 
-## Energy_Resolution_Scope is a Jupyter Notebook that pulls traces off the scope and stores these traces in arrays. These arrays are saved in h5py files. h5py files are convenient because you can splice into them, which is nice for plotting and data analysis. Each row in a data set corresponds to one scope trace, so the data sets returned have a number of rows equal to the number of traces desired for each run (column number is equal to the number of data points the scope records for each trace, usually 10000).
+## burstcube_test_daq.ipynb is a Jupyter Notebook that pulls traces off the scope and stores these traces in arrays. These arrays are saved in h5py files. h5py files are convenient because you can splice into them, which is nice for plotting and data analysis. Each row in a data set corresponds to one scope trace, so the data sets returned have a number of rows equal to the number of traces desired for each run (column number is equal to the number of data points the scope records for each trace, usually 10000).
 
 ## How this code determines energy resolution:
 ### Once an array has been created, the code looks at each row of the array (or each pulse) and extracts a peak value. It does this by finding the maximum  value of the pulse and then subracting a noise value. The peak height is important because it is (approximately) a measure of energy.
@@ -9,12 +9,13 @@
 ### After the energy resolution is calculated, it will also calculate the error in the energy resolution.
 
 ## Steps for using the code:
-#### 1. Log on to the lab computer. Use badge in the built-in card reader and eneter PIN. Make sure that the account name is entered into the hint space.
+#### 1. Log on to the lab computer. Use badge in the built-in card reader and enter PIN. Make sure that the account name is entered into the hint space.
 #### 2. Check to make sure the lab laptopn and scope are connected to the router via ethernet.
 #### Note on communicating to the scope:
 #### Make sure the scope and the lab computer are both plugged into the router (but not the Internet port). This sets the IP address of the scope.  
-#### 3. Open Windows Powershell. cd into BurstCube\Users\ibrewer. This is where the Energy_Resolution_Scope notebook is.
-#### 4. Open Jupyter Notebook/ open the Energy_Resolution_Scope notebook.
+#### If the scope is having difficulties with its IP address, press the Utility button on the scope and press Utility Page Config. Scroll down to I/O and press Ethernet & LXI. Press LAN Settings on the right hand side to check the IP address and press LAN Reset if the router is having difficulty setting an IP address to the scope.
+#### 3. Open Windows Powershell. cd into BurstCube\Users\ibrewer. This is where the burstcube_test_daq.ipynb notebook is.
+#### 4. Open Jupyter Notebook/ open burstcube_test_daq.ipynb.
 #### 5. Import necessary packages.
 #### 6. Set the scope IP address in the scope handler. Enter the IP address of the scope (as assigned by the router) as a string into the hander "scope = sdaq.Scope(address="10.10.10.2")." To check the IP address of the scope, you can go to the Utility menu and check the LAN settings. Sometimes a LAN reset is required.
 #### 7. Create a new h5py file. (The command f = h5py.File('file_name', 'a') creates a new file.)
@@ -33,4 +34,5 @@
 #### 13. Save peaks data (manually change the data set name for the peaks).
 #### 14. Plot histograms and calculate the energy resolution with errors. For the fitted Gaussian, edit the code to make best guesses for the mean peak value, amplitude, and sigma.
 #### 15. If no more data sets are being added to the file, close the file.
+#### 16. Copy the completed file (name it as a copy) and move both the original file and the copy to a hard drive. The copy will eventually be moved to a shared file space.
 
